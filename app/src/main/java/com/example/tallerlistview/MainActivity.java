@@ -32,10 +32,16 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
+                        intent = new Intent(MainActivity.this, ListAreas.class);
+                        startActivity(intent);
                         break;
                     case 1:
+                        intent = new Intent(MainActivity.this, ListVolumes.class);
+                        startActivity(intent);
                         break;
                     case 2:
+                        intent = new Intent(MainActivity.this, ListOperations.class);
+                        startActivity(intent);
                         break;
                 }
             }
