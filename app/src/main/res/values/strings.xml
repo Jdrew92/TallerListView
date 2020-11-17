@@ -1,13 +1,42 @@
 <resources>
     <string name="app_name">TallerListView</string>
-    <string name="options_title">Options</string>
-    <string name="area">Area</string>
-    <string name="volume">Volume</string>
-    <string name="operations">Operations Done</string>
+    <string name="options_title">OPTIONS</string>
+    <string name="area">AREAS</string>
+    <string name="volume">VOLUMES</string>
+    <string name="operations">OPERATIONS DONE</string>
 
     <string-array name="opts_array">
         <item>@string/area</item>
         <item>@string/volume</item>
         <item>@string/operations</item>
     </string-array>
+
+    <string name="square">SQUARE</string>
+    <string name="rectangle">RECTANGLE</string>
+    <string name="triangle">TRIANGLE</string>
+    <string name="circle">CIRCLE</string>
+
+    <string-array name="area_opts">
+        <item>@string/square</item>
+        <item>@string/rectangle</item>
+        <item>@string/triangle</item>
+        <item>@string/circle</item>
+    </string-array>
+
+    <string name="sphere">SPHERE</string>
+    <string name="cylinder">CYLINDER</string>
+    <string name="cone">CONE</string>
+    <string name="cube">CUBE</string>
+
+    <string-array name="vol_opts">
+        <item>@string/sphere</item>
+        <item>@string/cylinder</item>
+        <item>@string/cone</item>
+        <item>@string/cube</item>
+    </string-array>
+
+    <string name="num">N.</string>
+    <string name="operation">OPERATION</string>
+    <string name="data">DATA</string>
+    <string name="result">RESULT</string>
 </resources>

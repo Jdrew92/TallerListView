@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TallerListView</string>
-    <string name="area">Área</string>
-    <string name="volume">Volúmen</string>
-    <string name="operations">Operaciones Realizadas</string>
-    <string name="options_title">Opciones</string>
+    <string name="area">ÁREAS</string>
+    <string name="volume">VOLÚMENES</string>
+    <string name="operations">OPERACIONES REALIZADAS</string>
+    <string name="options_title">OPCIONES</string>
+    <string name="square">CUADRADO</string>
+    <string name="rectangle">RECTÁNGULO</string>
+    <string name="triangle">TRIÁNGULO</string>
+    <string name="circle">CÍRCULO</string>
+    <string name="sphere">ESFERA</string>
+    <string name="cylinder">CILINDRO</string>
+    <string name="cone">CONO</string>
+    <string name="cube">CUBO</string>
+    <string name="num">No.</string>
+    <string name="operation">OPERACIÓN</string>
+    <string name="data">DATOS</string>
+    <string name="result">RESULTADO</string>
 </resources>
