@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TallerListView</string>
+    <string name="area">Área</string>
+    <string name="volume">Volúmen</string>
+    <string name="operations">Operaciones Realizadas</string>
+    <string name="options_title">Opciones</string>
+</resources>
