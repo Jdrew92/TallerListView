@@ -31,15 +31,53 @@ public class ListAreas extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
+                        Calculate.setOp(position);
+                        setSqrStrings();
+                        intent = new Intent(ListAreas.this, Calculate.class);
+                        startActivity(intent);
                         break;
                     case 1:
+                        Calculate.setOp(position);
+                        setRectangleStrings();
+                        intent = new Intent(ListAreas.this, Calculate.class);
+                        startActivity(intent);
                         break;
                     case 2:
+                        Calculate.setOp(position);
+                        setTriangleStrings();
+                        intent = new Intent(ListAreas.this, Calculate.class);
+                        startActivity(intent);
                         break;
                     case 3:
+                        Calculate.setOp(position);
+                        setCircleStrings();
+                        intent = new Intent(ListAreas.this, Calculate.class);
+                        startActivity(intent);
                         break;
                 }
             }
         });
+    }
+
+    public void setSqrStrings(){
+        Calculate.setStrTitle(R.string.square);
+        Calculate.setStrVar1(R.string.lbl_side_input);
+    }
+
+    public void setRectangleStrings(){
+        Calculate.setStrTitle(R.string.rectangle);
+        Calculate.setStrVar1(R.string.lbl_base_input);
+        Calculate.setStrVar2(R.string.lbl_height_input);
+    }
+
+    public void setTriangleStrings(){
+        Calculate.setStrTitle(R.string.triangle);
+        Calculate.setStrVar1(R.string.lbl_base_input);
+        Calculate.setStrVar2(R.string.lbl_height_input);
+    }
+
+    public void setCircleStrings(){
+        Calculate.setStrTitle(R.string.circle);
+        Calculate.setStrVar1(R.string.lbl_radius_input);
     }
 }

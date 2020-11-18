@@ -39,4 +39,10 @@
     <string name="operation">OPERATION</string>
     <string name="data">DATA</string>
     <string name="result">RESULT</string>
+    <string name="lbl_side_input">SIDE VALUE</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="clear">CLEAR</string>
+    <string name="lbl_base_input">BASE VALUE</string>
+    <string name="lbl_height_input">HEIGHT VALUE</string>
+    <string name="lbl_radius_input">RADIUS VALUE</string>
 </resources>

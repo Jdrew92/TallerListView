@@ -17,4 +17,10 @@
     <string name="operation">OPERACIÓN</string>
     <string name="data">DATOS</string>
     <string name="result">RESULTADO</string>
+    <string name="lbl_side_input">VALOR DEL LADO</string>
+    <string name="calculate">CALCULAR</string>
+    <string name="clear">LIMPIAR</string>
+    <string name="lbl_base_input">VALOR DE LA BASE</string>
+    <string name="lbl_height_input">VALOR DE LA ALTURA</string>
+    <string name="lbl_radius_input">VALOR DEL RADIO</string>
 </resources>
