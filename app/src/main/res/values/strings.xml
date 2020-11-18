@@ -45,4 +45,12 @@
     <string name="lbl_base_input">BASE VALUE</string>
     <string name="lbl_height_input">HEIGHT VALUE</string>
     <string name="lbl_radius_input">RADIUS VALUE</string>
+    <string name="square_area">SQUARE AREA</string>
+    <string name="rect_area">RECTANGLE AREA</string>
+    <string name="tri_area">TRIANGLE AREA</string>
+    <string name="circle_area">CIRCLE AREA</string>
+    <string name="side">SIDE</string>
+    <string name="base" translatable="false">BASE</string>
+    <string name="height">HEIGHT</string>
+    <string name="radius">RADIUS</string>
 </resources>

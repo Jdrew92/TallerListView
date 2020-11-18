@@ -23,4 +23,11 @@
     <string name="lbl_base_input">VALOR DE LA BASE</string>
     <string name="lbl_height_input">VALOR DE LA ALTURA</string>
     <string name="lbl_radius_input">VALOR DEL RADIO</string>
+    <string name="square_area">ÁREA DEL CUADRADO</string>
+    <string name="rect_area">ÁREA DEL RECTÁNGULO</string>
+    <string name="tri_area">ÁREA DEL TRIÁNGULO</string>
+    <string name="circle_area">ÁREA DEL CÍRCULO</string>
+    <string name="side">LADO</string>
+    <string name="height">ALTURA</string>
+    <string name="radius">RADIO</string>
 </resources>

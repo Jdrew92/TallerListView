@@ -41,7 +41,7 @@
             android:layout_marginTop="15sp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number|numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number|numberDecimal" />
 
     </LinearLayout>
 
@@ -93,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#6E0E88"
+            android:onClick="clear"
             android:text="@string/clear"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
