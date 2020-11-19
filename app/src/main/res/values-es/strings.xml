@@ -30,4 +30,6 @@
     <string name="side">LADO</string>
     <string name="height">ALTURA</string>
     <string name="radius">RADIO</string>
+    <string name="empty_error">Digite un valor</string>
+    <string name="zero_value">Digite un valor diferente a cero</string>
 </resources>

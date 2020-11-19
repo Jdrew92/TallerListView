@@ -53,4 +53,6 @@
     <string name="base" translatable="false">BASE</string>
     <string name="height">HEIGHT</string>
     <string name="radius">RADIUS</string>
+    <string name="empty_error">Enter a value</string>
+    <string name="zero_value">Enter a non-zero value</string>
 </resources>

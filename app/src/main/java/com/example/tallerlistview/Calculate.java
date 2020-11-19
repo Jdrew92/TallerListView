@@ -83,37 +83,53 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         switch (op){
             case 0:
                 Log.i("Funcion:", "Area Cuadrado");
-                o = new Operations();
-                v1 = Double.parseDouble(txtVar1.getText().toString());
-                o.setOp(sqr_area);
-                o.setData(side+": "+v1);
-                result.setText(sqr_area+": "+o.getSquareArea(v1));
+                if (!isEmpty(txtVar1)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    if (!isZero(v1)){
+                        o.setOp(sqr_area);
+                        o.setData(side+": "+v1);
+                        result.setText(sqr_area+": "+o.getSquareArea(v1));
+                    }
+                }
                 break;
             case 1:
                 Log.i("Funcion:", "Area Rectangulo");
-                o = new Operations();
-                v1 = Double.parseDouble(txtVar1.getText().toString());
-                v2 = Double.parseDouble(txtVar2.getText().toString());
-                o.setOp(rect_area);
-                o.setData(base+ ": "+v1+" "+height+": "+v2);
-                result.setText(rect_area+": "+o.getRectangleArea(v1, v2));
+                if (!isEmpty(txtVar1, txtVar2)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    v2 = Double.parseDouble(txtVar2.getText().toString());
+                    if (!isZero(v1, v2)) {
+                        o.setOp(rect_area);
+                        o.setData(base + ": " + v1 + " " + height + ": " + v2);
+                        result.setText(rect_area + ": " + o.getRectangleArea(v1, v2));
+                    }
+                }
                 break;
             case 2:
                 Log.i("Funcion:", "Area Triangulo");
-                o = new Operations();
-                v1 = Double.parseDouble(txtVar1.getText().toString());
-                v2 = Double.parseDouble(txtVar2.getText().toString());
-                o.setOp(tri_area);
-                o.setData(base+ ": "+v1+" "+height+": "+v2);
-                result.setText(tri_area+": "+o.getTriangleArea(v1, v2));
+                if (!isEmpty(txtVar1, txtVar2)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    v2 = Double.parseDouble(txtVar2.getText().toString());
+                    if (!isZero(v1, v2)){
+                        o.setOp(tri_area);
+                        o.setData(base+ ": "+v1+" "+height+": "+v2);
+                        result.setText(tri_area+": "+o.getTriangleArea(v1, v2));
+                    }
+                }
                 break;
             case 3:
                 Log.i("Funcion:", "Area Circulo");
-                o = new Operations();
-                v1 = Double.parseDouble(txtVar1.getText().toString());
-                o.setOp(cir_area);
-                o.setData(radius+ ": "+v1);
-                result.setText(cir_area+": "+o.getCircleArea(v1));
+                if (!isEmpty(txtVar1)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    if (!isZero(v1)) {
+                        o.setOp(cir_area);
+                        o.setData(radius + ": " + v1);
+                        result.setText(cir_area + ": " + o.getCircleArea(v1));
+                    }
+                }
                 break;
         }
     }
@@ -130,7 +146,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
             result.setText("");
             txtVar1.requestFocus();
         }
-        for (int i = 0; i < Data.getOperationsList().size(); i++) {
+        /*for (int i = 0; i < Data.getOperationsList().size(); i++) {
             Log.i("-----------", "-------------");
             Log.i("No.", ""+i);
             Log.i("Op", ""+Data.getOperationsList().get(i).getOp());
@@ -138,6 +154,45 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
             Log.i("area", ""+Data.getOperationsList().get(i).getArea());
 
         }
-        Log.i("-----------", "-------------");
+        Log.i("-----------", "-------------");*/
+    }
+
+    public boolean isEmpty(EditText e){
+        if (e.getText().toString().isEmpty()){
+            e.setError(getText(R.string.empty_error));
+            e.requestFocus();
+            return true;
+        }
+        return false;
+    }
+    public boolean isEmpty(EditText e, EditText e2){
+        if (e.getText().toString().isEmpty()){
+            e.setError(getText(R.string.empty_error));
+            e.requestFocus();
+            return true;
+        } if (e2.getText().toString().isEmpty()){
+            e2.setError(getText(R.string.empty_error));
+            e2.requestFocus();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isZero(double a){
+        if (a==0){
+            txtVar1.setError(getText(R.string.zero_value));
+            return true;
+        }
+        return false;
+    }
+    public boolean isZero(double a, double b){
+        if (a==0){
+            txtVar1.setError(getText(R.string.zero_value));
+            return true;
+        } if (b==0){
+            txtVar2.setError(getText(R.string.zero_value));
+            return true;
+        }
+        return false;
     }
 }
