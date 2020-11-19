@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
+            android:text="@string/lbl_height_input"
             android:textColor="#6E0E88"
             android:textSize="24sp" />
 

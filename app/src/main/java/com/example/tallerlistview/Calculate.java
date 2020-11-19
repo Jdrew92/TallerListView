@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 public class Calculate extends AppCompatActivity implements View.OnClickListener{
 
-    private static int strTitle, strVar1, strVar2, op;
+    private static int strTitle, strVar1, op;
     private double v1, v2;
-    private String side, base, height, radius, sqr_area, rect_area, tri_area, cir_area;
+    private String side, base, height, slant_height, radius, sqr_area, rect_area, tri_area, cir_area, cube_area, cyl_area, cone_area, sphere_area;
 
     private TextView title, var1, var2, result;
     private EditText txtVar1, txtVar2;
@@ -41,23 +41,27 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         rect_area = getResources().getText(R.string.rect_area).toString();
         tri_area = getResources().getText(R.string.tri_area).toString();
         cir_area = getResources().getText(R.string.circle_area).toString();
+        cube_area = getResources().getText(R.string.cube_area).toString();
+        cyl_area = getResources().getText(R.string.cylinder_area).toString();
+        cone_area = getResources().getText(R.string.cone_area).toString();
+        sphere_area = getResources().getText(R.string.sphere_area).toString();
 
         side = getResources().getText(R.string.side).toString();
         base = getResources().getText(R.string.base).toString();
         height = getResources().getText(R.string.height).toString();
+        slant_height = getResources().getText(R.string.slant_height).toString();
         radius = getResources().getText(R.string.radius).toString();
 
-        if (op == 0 || op == 3) {
+        if (op == 0 || op == 3 || op == 4 || op == 7) {
             title.setText(strTitle);
             var1.setText(strVar1);
             grpvar2.setVisibility(View.GONE);
             btnCalc.setOnClickListener(this);
         }
-        if (op == 1 || op == 2){
-                title.setText(strTitle);
-                var1.setText(strVar1);
-                var2.setText(strVar2);
-                btnCalc.setOnClickListener(this);
+        else {
+            title.setText(strTitle);
+            var1.setText(strVar1);
+            btnCalc.setOnClickListener(this);
         }
 
     }
@@ -68,10 +72,6 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
 
     public static void setStrVar1(int strVar1) {
         Calculate.strVar1 = strVar1;
-    }
-
-    public static void setStrVar2(int strVar2) {
-        Calculate.strVar2 = strVar2;
     }
 
     public static void setOp(int op) {
@@ -131,21 +131,66 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     }
                 }
                 break;
+            case 4:
+                Log.i("Funcion:", "Area Esfera");
+                if (!isEmpty(txtVar1)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    if (!isZero(v1)) {
+                        o.setOp(sphere_area);
+                        o.setData(radius + ": " + v1);
+                        result.setText(sphere_area + ": " + o.getSphereArea(v1));
+                    }
+                }
+                break;
+            case 5:
+                Log.i("Funcion:", "Area Cilindro");
+                if (!isEmpty(txtVar1, txtVar2)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    v2 = Double.parseDouble(txtVar2.getText().toString());
+                    if (!isZero(v1, v2)) {
+                        o.setOp(cyl_area);
+                        o.setData(radius + ": " + v1 + " " + height + ": " + v2);
+                        result.setText(cyl_area + ": " + o.getCylinderArea(v1, v2));
+                    }
+                }
+                break;
+            case 6:
+                Log.i("Funcion:", "Area cono");
+                if (!isEmpty(txtVar1, txtVar2)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    v2 = Double.parseDouble(txtVar2.getText().toString());
+                    if (!isZero(v1, v2)){
+                        o.setOp(cone_area);
+                        o.setData(radius+ ": "+v1+" "+slant_height+": "+v2);
+                        result.setText(cone_area+": "+o.getConeArea(v1, v2));
+                    }
+                }
+                break;
+            case 7:
+                Log.i("Funcion:", "Area Cubo");
+                if (!isEmpty(txtVar1)){
+                    o = new Operations();
+                    v1 = Double.parseDouble(txtVar1.getText().toString());
+                    if (!isZero(v1)){
+                        o.setOp(cube_area);
+                        o.setData(side+": "+v1);
+                        result.setText(cube_area+": "+o.getCubeArea(v1));
+                    }
+                }
+                break;
         }
     }
 
     public void clear(View v){
-        if (op == 0 || op == 3) {
-            txtVar1.setText("");
-            result.setText("");
-            txtVar1.requestFocus();
-        }
-        if (op == 1 || op == 2){
-            txtVar1.setText("");
-            txtVar2.setText("");
-            result.setText("");
-            txtVar1.requestFocus();
-        }
+
+        txtVar1.setText("");
+        txtVar2.setText("");
+        result.setText("");
+        txtVar1.requestFocus();
+
         /*for (int i = 0; i < Data.getOperationsList().size(); i++) {
             Log.i("-----------", "-------------");
             Log.i("No.", ""+i);

@@ -32,15 +32,50 @@ public class ListVolumes extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
+                        Calculate.setOp(position+4);
+                        setSphereStrings();
+                        intent = new Intent(ListVolumes.this, Calculate.class);
+                        startActivity(intent);
                         break;
                     case 1:
+                        Calculate.setOp(position+4);
+                        setCylinderStrings();
+                        intent = new Intent(ListVolumes.this, Calculate.class);
+                        startActivity(intent);
                         break;
                     case 2:
+                        Calculate.setOp(position+4);
+                        setConeStrings();
+                        intent = new Intent(ListVolumes.this, Calculate.class);
+                        startActivity(intent);
                         break;
                     case 3:
+                        Calculate.setOp(position+4);
+                        setCubeStrings();
+                        intent = new Intent(ListVolumes.this, Calculate.class);
+                        startActivity(intent);
                         break;
                 }
             }
         });
+    }
+    public void setCubeStrings(){
+        Calculate.setStrTitle(R.string.cube);
+        Calculate.setStrVar1(R.string.lbl_side_input);
+    }
+
+    public void setCylinderStrings(){
+        Calculate.setStrTitle(R.string.cylinder);
+        Calculate.setStrVar1(R.string.lbl_radius_input);
+    }
+
+    public void setConeStrings(){
+        Calculate.setStrTitle(R.string.cone);
+        Calculate.setStrVar1(R.string.lbl_radius_input);
+    }
+
+    public void setSphereStrings(){
+        Calculate.setStrTitle(R.string.sphere);
+        Calculate.setStrVar1(R.string.lbl_radius_input);
     }
 }

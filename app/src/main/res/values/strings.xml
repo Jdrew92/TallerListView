@@ -55,4 +55,9 @@
     <string name="radius">RADIUS</string>
     <string name="empty_error">Enter a value</string>
     <string name="zero_value">Enter a non-zero value</string>
+    <string name="cube_area">CUBE AREA</string>
+    <string name="cylinder_area">CYLINDER AREA</string>
+    <string name="cone_area">CONE AREA</string>
+    <string name="sphere_area">SPHERE AREA</string>
+    <string name="slant_height">SLANT HEIGHT</string>
 </resources>

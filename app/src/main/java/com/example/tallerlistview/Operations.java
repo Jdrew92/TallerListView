@@ -34,24 +34,48 @@ public class Operations {
     public double getSquareArea(double side){
         setArea(Double.parseDouble(d.format(side*side)));
         Data.saveData(this);
-        return this.area;
+        return getArea();
     }
 
     public double getRectangleArea(double base, double height){
         setArea(Double.parseDouble(d.format(base*height)));
         Data.saveData(this);
-        return this.area;
+        return getArea();
     }
 
     public double getTriangleArea(double base, double height){
         setArea(Double.parseDouble(d.format(0.5*base*height)));
         Data.saveData(this);
-        return this.area;
+        return getArea();
     }
 
     public double getCircleArea(double radius){
         setArea(Double.parseDouble(d.format(Math.PI*Math.pow(radius, 2))));
         Data.saveData(this);
-        return this.area;
+        return getArea();
+    }
+
+    public double getCubeArea(double side){
+        setArea(Double.parseDouble(d.format(6 * side * side)));
+        Data.saveData(this);
+        return getArea();
+    }
+
+    public double getCylinderArea(double radius, double height){
+        setArea(Double.parseDouble(d.format(2 * Math.PI * radius * (radius + height))));
+        Data.saveData(this);
+        return getArea();
+    }
+
+    public double getConeArea(double radius, double slant_height){
+        setArea(Double.parseDouble(d.format(Math.PI * radius * (radius + slant_height))));
+        Data.saveData(this);
+        return getArea();
+    }
+
+    public double getSphereArea(double radius){
+        setArea(Double.parseDouble(d.format(4 * Math.PI * Math.pow(radius, 2))));
+        Data.saveData(this);
+        return getArea();
     }
 }

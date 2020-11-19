@@ -67,13 +67,11 @@ public class ListAreas extends AppCompatActivity {
     public void setRectangleStrings(){
         Calculate.setStrTitle(R.string.rectangle);
         Calculate.setStrVar1(R.string.lbl_base_input);
-        Calculate.setStrVar2(R.string.lbl_height_input);
     }
 
     public void setTriangleStrings(){
         Calculate.setStrTitle(R.string.triangle);
         Calculate.setStrVar1(R.string.lbl_base_input);
-        Calculate.setStrVar2(R.string.lbl_height_input);
     }
 
     public void setCircleStrings(){
