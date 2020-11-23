@@ -2,9 +2,11 @@ package com.example.tallerlistview;
 
 import android.content.Context;
 
+import java.text.DecimalFormat;
+
 public class Square implements Area, Operation{
 
-    private double side;
+    private double side, area;
     private String title, input_lbl, area_lbl, side_lbl;
 
     public Square(Context context){
@@ -12,10 +14,6 @@ public class Square implements Area, Operation{
         input_lbl = context.getResources().getText(R.string.lbl_side_input).toString();
         area_lbl = context.getResources().getText(R.string.square_area).toString();
         side_lbl = context.getResources().getText(R.string.side).toString();
-    }
-
-    public double getSide() {
-        return side;
     }
 
     public void setSide(double side) {
@@ -34,18 +32,10 @@ public class Square implements Area, Operation{
         return area_lbl;
     }
 
-    public String getSide_lbl() {
-        return side_lbl;
-    }
-
     @Override
-    public double Area() {
-        return side * side;
-    }
-
-    @Override
-    public void saveOperation() {
-
+    public void Area() {
+        area = side * side;
+        Data.saveData(this);
     }
 
     @Override
@@ -55,13 +45,13 @@ public class Square implements Area, Operation{
 
     @Override
     public String getData() {
-        String data = side_lbl + ": " + Double.toString(side);
+        String data = side_lbl + ": " +side;
         return data;
     }
 
     @Override
     public String getResult() {
-        String result = Double.toString(Area());
+        String result = Double.toString(area);
         return result;
     }
 

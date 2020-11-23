@@ -32,24 +32,6 @@ public class Operations {
     }
 
 
-    public double getRectangleArea(double base, double height){
-        setArea(Double.parseDouble(d.format(base*height)));
-        Data.saveData(this);
-        return getArea();
-    }
-
-    public double getTriangleArea(double base, double height){
-        setArea(Double.parseDouble(d.format(0.5*base*height)));
-        Data.saveData(this);
-        return getArea();
-    }
-
-    public double getCircleArea(double radius){
-        setArea(Double.parseDouble(d.format(Math.PI*Math.pow(radius, 2))));
-        Data.saveData(this);
-        return getArea();
-    }
-
     public double getCubeArea(double side){
         setArea(Double.parseDouble(d.format(6 * side * side)));
         Data.saveData(this);
