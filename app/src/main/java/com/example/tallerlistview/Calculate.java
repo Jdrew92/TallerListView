@@ -1,5 +1,6 @@
 package com.example.tallerlistview;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -111,6 +112,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                 if (!isEmpty(txtVar1)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)){
+                        s = new Square(this);
                         s.setSide(v1);
                         s.calculateArea();
                         result.setText(s.getOperation()+": "+s.getResult());
@@ -123,6 +125,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)) {
+                        r = new Rectangle(this);
                         r.setBase(v1);
                         r.setHeight(v2);
                         r.calculateArea();
@@ -136,6 +139,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)){
+                        t = new Triangle(this);
                         t.setBase(v1);
                         t.setHeight(v2);
                         t.calculateArea();
@@ -148,6 +152,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                 if (!isEmpty(txtVar1)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)) {
+                        c = new Circle(this);
                         c.setRadius(v1);
                         c.calculateArea();
                         result.setText(c.getOperation()+": " + c.getResult());
@@ -159,6 +164,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                 if (!isEmpty(txtVar1)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)) {
+                        sp = new Sphere(this);
                         sp.setRadius(v1);
                         sp.calculateVolume();
                         result.setText(sp.getOperation()+": "+sp.getResult());
@@ -171,6 +177,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)) {
+                        cy = new Cylinder(this);
                         cy.setRadius(v1);
                         cy.setHeight(v2);
                         cy.calculateVolume();
@@ -184,6 +191,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)){
+                        co = new Cone(this);
                         co.setRadius(v1);
                         co.setHeight(v2);
                         co.calculateVolume();
@@ -196,6 +204,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                 if (!isEmpty(txtVar1)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)){
+                        cu = new Cube(this);
                         cu.setSide(v1);
                         cu.calculateVolume();
                         result.setText(cu.getOperation()+": "+cu.getResult());
@@ -261,4 +270,5 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         }
         return false;
     }
+    
 }

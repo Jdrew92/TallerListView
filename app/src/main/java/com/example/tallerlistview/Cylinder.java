@@ -54,5 +54,6 @@ public class Cylinder implements Volume, Operation{
     @Override
     public void calculateVolume() {
         volume = Math.PI * Math.pow(radius, 2) * height;
+        Data.saveData(this);
     }
 }
