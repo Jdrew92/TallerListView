@@ -4,15 +4,14 @@ import android.content.Context;
 
 import java.text.DecimalFormat;
 
-public class Square implements Area, Operation{
+public class Cube implements Volume, Operation{
+    private double side, volume;
+    private String title, input_lbl, volume_lbl, side_lbl;
 
-    private double side, area;
-    private String title, input_lbl, area_lbl, side_lbl;
-
-    public Square(Context context){
-        title = context.getResources().getText(R.string.square).toString();
+    public Cube(Context context){
+        title = context.getResources().getText(R.string.cube).toString();
         input_lbl = context.getResources().getText(R.string.lbl_side_input).toString();
-        area_lbl = context.getResources().getText(R.string.square_area).toString();
+        volume_lbl = context.getResources().getText(R.string.cube_volume).toString();
         side_lbl = context.getResources().getText(R.string.side).toString();
     }
 
@@ -29,14 +28,8 @@ public class Square implements Area, Operation{
     }
 
     @Override
-    public void calculateArea() {
-        area = side * side;
-        Data.saveData(this);
-    }
-
-    @Override
     public String getOperation() {
-        return area_lbl;
+        return volume_lbl;
     }
 
     @Override
@@ -48,8 +41,13 @@ public class Square implements Area, Operation{
     @Override
     public String getResult() {
         DecimalFormat df = new DecimalFormat("0.00");
-        String result = df.format(area);
+        String result = df.format(volume);
         return result;
     }
 
+    @Override
+    public void calculateVolume() {
+        volume = Math.pow(side,3);
+        Data.saveData(this);
+    }
 }

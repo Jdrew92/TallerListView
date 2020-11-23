@@ -32,11 +32,9 @@
     <string name="radius">RADIO</string>
     <string name="empty_error">Digite un valor</string>
     <string name="zero_value">Digite un valor diferente a cero</string>
-    <string name="cube_area">ÁREA DEL CUBO</string>
-    <string name="cylinder_area">ÁREA DEL CILINDRO</string>
-    <string name="cone_area">ÁREA DEL CONO</string>
-    <string name="sphere_area">ÁREA DE LA ESFERA</string>
-    <string name="slant_height">GENERATRIZ</string>
-    <string name="lbl_slant_input">VALOR DEL GENERATRIZ</string>
+    <string name="cube_volume">VOLÚMEN DEL CUBO</string>
+    <string name="cylinder_volume">VOLÚMEN DEL CILINDRO</string>
+    <string name="cone_volume">VOLÚMEN DEL CONO</string>
+    <string name="sphere_volume">VOLÚMEN DE LA ESFERA</string>
     <string name="done">REALIZADAS</string>
 </resources>

@@ -15,8 +15,7 @@ import java.util.ArrayList;
 public class ListOperations extends AppCompatActivity {
 
     private TableLayout table;
-    private ArrayList<Operations> operations;
-    //private ArrayList<Operation> operations;
+    private ArrayList<Operation> operations;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +28,6 @@ public class ListOperations extends AppCompatActivity {
 
         for (int i = 0; i < operations.size(); i++) {
 
-               /* Log.i("-----------", "-------------");
-                Log.i("No.", ""+i);
-                Log.i("Op", ""+operations.get(i).getOp());
-                Log.i("Datos", ""+operations.get(i).getData());
-                Log.i("area", ""+operations.get(i).getArea());
-                Log.i("-----------", "-------------");*/
-
             TableRow row = new TableRow(this);
 
             TextView col_num = new TextView(this);
@@ -44,9 +36,9 @@ public class ListOperations extends AppCompatActivity {
             TextView col_rslt = new TextView(this);
 
             col_num.setText(""+(i+1));
-            col_ops.setText(operations.get(i).getOp());
+            col_ops.setText(operations.get(i).getOperation());
             col_data.setText(operations.get(i).getData());
-            col_rslt.setText(""+operations.get(i).getArea());
+            col_rslt.setText(""+operations.get(i).getResult());
 
             row.addView(col_num);
             row.addView(col_ops);

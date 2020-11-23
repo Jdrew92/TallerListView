@@ -3,7 +3,6 @@ package com.example.tallerlistview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.os.DeadObjectException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,21 +12,22 @@ import android.widget.TextView;
 
 public class Calculate extends AppCompatActivity implements View.OnClickListener{
 
-    private static int strVar2, op;
+    private static int op;
     private double v1, v2;
 
     private Square s;
     private Rectangle r;
     private Triangle t;
     private Circle c;
-
-    private String slant_height, cube_area, cyl_area, cone_area, sphere_area;
+    private Sphere sp;
+    private Cylinder cy;
+    private Cone co;
+    private Cube cu;
 
     private TextView title, var1, var2, result;
     private EditText txtVar1, txtVar2;
     private Button btnCalc;
     private static LinearLayout grpvar2;
-    private Operations o;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,34 +54,49 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
             case 1:
                 r = new Rectangle(this);
                 title.setText(r.getTitle());
-                var1.setText(r.getBase_input_lbl());
+                var1.setText(r.getInput_lbl());
                 btnCalc.setOnClickListener(this);
                 break;
             case 2:
                 t = new Triangle(this);
                 title.setText(t.getTitle());
-                var1.setText(t.getBase_input_lbl());
+                var1.setText(t.getInput_lbl());
                 btnCalc.setOnClickListener(this);
                 break;
             case 3:
                 c = new Circle(this);
                 title.setText(c.getTitle());
-                var1.setText(c.getRadius_input_lbl());
+                var1.setText(c.getInput_lbl());
+                grpvar2.setVisibility(View.GONE);
+                btnCalc.setOnClickListener(this);
+                break;
+            case 4:
+                sp = new Sphere(this);
+                title.setText(sp.getTitle());
+                var1.setText(sp.getInput_lbl());
+                grpvar2.setVisibility(View.GONE);
+                btnCalc.setOnClickListener(this);
+                break;
+            case 5:
+                cy = new Cylinder(this);
+                title.setText(cy.getTitle());
+                var1.setText(cy.getInput_lbl());
+                btnCalc.setOnClickListener(this);
+                break;
+            case 6:
+                co = new Cone(this);
+                title.setText(co.getTitle());
+                var1.setText(co.getInput_lbl());
+                btnCalc.setOnClickListener(this);
+                break;
+            case 7:
+                cu = new Cube(this);
+                title.setText(cu.getTitle());
+                var1.setText(cu.getInput_lbl());
                 grpvar2.setVisibility(View.GONE);
                 btnCalc.setOnClickListener(this);
                 break;
         }
-        cube_area = getResources().getText(R.string.cube_area).toString();
-        cyl_area = getResources().getText(R.string.cylinder_area).toString();
-        cone_area = getResources().getText(R.string.cone_area).toString();
-        sphere_area = getResources().getText(R.string.sphere_area).toString();
-
-        slant_height = getResources().getText(R.string.slant_height).toString();
-
-    }
-
-    public static void setStrVar2(int strVar2) {
-        Calculate.strVar2 = strVar2;
     }
 
     public static void setOp(int op) {
@@ -92,97 +107,98 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v){
         switch (op){
             case 0:
-                Log.i("Funcion:", "Area Cuadrado");
+                //Square
                 if (!isEmpty(txtVar1)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)){
                         s.setSide(v1);
-                        s.Area();
-                        result.setText(s.getArea_lbl()+": "+s.getResult());
+                        s.calculateArea();
+                        result.setText(s.getOperation()+": "+s.getResult());
                     }
                 }
                 break;
             case 1:
-                Log.i("Funcion:", "Area Rectangulo");
+                //Rectangle
                 if (!isEmpty(txtVar1, txtVar2)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)) {
                         r.setBase(v1);
                         r.setHeight(v2);
-                        r.Area();
-                        result.setText(r.getArea_lbl()+": "+r.getResult());
+                        r.calculateArea();
+                        result.setText(r.getOperation()+": "+r.getResult());
                     }
                 }
                 break;
             case 2:
-                Log.i("Funcion:", "Area Triangulo");
+                //Triangle
                 if (!isEmpty(txtVar1, txtVar2)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)){
                         t.setBase(v1);
                         t.setHeight(v2);
-                        t.Area();
-                        result.setText(t.getArea_lbl()+": "+t.getResult());
+                        t.calculateArea();
+                        result.setText(t.getOperation()+": "+t.getResult());
                     }
                 }
                 break;
             case 3:
-                Log.i("Funcion:", "Area Circulo");
+                //Circle
                 if (!isEmpty(txtVar1)){
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)) {
                         c.setRadius(v1);
-                        c.Area();
-                        result.setText(c.getArea_lbl()+": " + c.getResult());
+                        c.calculateArea();
+                        result.setText(c.getOperation()+": " + c.getResult());
                     }
                 }
                 break;
             case 4:
-                Log.i("Funcion:", "Area Esfera");
+                //Sphere
                 if (!isEmpty(txtVar1)){
-                    //o = new Operations();
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)) {
-                        o.setData( ": " + v1);
-                        result.setText(sphere_area + ": " + o.getSphereArea(v1));
+                        sp.setRadius(v1);
+                        sp.calculateVolume();
+                        result.setText(sp.getOperation()+": "+sp.getResult());
                     }
                 }
                 break;
             case 5:
-                Log.i("Funcion:", "Area Cilindro");
+                //Cylinder
                 if (!isEmpty(txtVar1, txtVar2)){
-                    o = new Operations();
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)) {
-
-                        result.setText(cyl_area + ": " + o.getCylinderArea(v1, v2));
+                        cy.setRadius(v1);
+                        cy.setHeight(v2);
+                        cy.calculateVolume();
+                        result.setText(cy.getOperation()+": "+cy.getResult());
                     }
                 }
                 break;
             case 6:
-                Log.i("Funcion:", "Area cono");
+                //Cone
                 if (!isEmpty(txtVar1, txtVar2)){
-                    o = new Operations();
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)){
-                        o.setOp(cone_area);
-                        o.setData( ": "+v1+"\n"+slant_height+": "+v2);
-                        result.setText(cone_area+": "+o.getConeArea(v1, v2));
+                        co.setRadius(v1);
+                        co.setHeight(v2);
+                        co.calculateVolume();
+                        result.setText(co.getOperation()+": "+co.getResult());
                     }
                 }
                 break;
             case 7:
-                Log.i("Funcion:", "Area Cubo");
+                //Cube
                 if (!isEmpty(txtVar1)){
-                    o = new Operations();
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)){
-                        o.setOp(cube_area);
-                        result.setText(cube_area+": "+o.getCubeArea(v1));
+                        cu.setSide(v1);
+                        cu.calculateVolume();
+                        result.setText(cu.getOperation()+": "+cu.getResult());
                     }
                 }
                 break;

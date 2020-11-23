@@ -4,15 +4,15 @@ import android.content.Context;
 
 import java.text.DecimalFormat;
 
-public class Circle implements Area, Operation{
+public class Sphere implements Volume, Operation{
 
-    private double radius, area;
-    private String title,input_lbl, area_lbl, radius_lbl;
+    private double radius, volume;
+    private String title,input_lbl, volume_lbl, radius_lbl;
 
-    public Circle(Context context){
-        title = context.getResources().getText(R.string.circle).toString();
+    public Sphere(Context context){
+        title = context.getResources().getText(R.string.sphere).toString();
         input_lbl = context.getResources().getText(R.string.lbl_radius_input).toString();
-        area_lbl = context.getResources().getText(R.string.circle_area).toString();
+        volume_lbl = context.getResources().getText(R.string.sphere_volume).toString();
         radius_lbl = context.getResources().getText(R.string.radius).toString();
     }
 
@@ -29,14 +29,8 @@ public class Circle implements Area, Operation{
     }
 
     @Override
-    public void calculateArea() {
-        area = Math.PI*Math.pow(radius, 2);
-        Data.saveData(this);
-    }
-
-    @Override
     public String getOperation() {
-        return area_lbl;
+        return volume_lbl;
     }
 
     @Override
@@ -48,7 +42,13 @@ public class Circle implements Area, Operation{
     @Override
     public String getResult() {
         DecimalFormat df = new DecimalFormat("0.00");
-        String result = df.format(area);
+        String result = df.format(volume);
         return result;
+    }
+
+    @Override
+    public void calculateVolume() {
+        volume = (4 * Math.PI * Math.pow(radius, 3))/3;
+        Data.saveData(this);
     }
 }

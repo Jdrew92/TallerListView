@@ -2,13 +2,15 @@ package com.example.tallerlistview;
 
 import android.content.Context;
 
+import java.text.DecimalFormat;
+
 public class Triangle implements Area, Operation{
     private double base, height, area;
-    private String title, base_input_lbl, area_lbl, base_lbl, height_lbl;
+    private String title, input_lbl, area_lbl, base_lbl, height_lbl;
 
     public Triangle(Context context){
         title = context.getResources().getText(R.string.triangle).toString();
-        base_input_lbl = context.getResources().getText(R.string.lbl_base_input).toString();
+        input_lbl = context.getResources().getText(R.string.lbl_base_input).toString();
         area_lbl = context.getResources().getText(R.string.tri_area).toString();
         base_lbl = context.getResources().getText(R.string.base).toString();
         height_lbl = context.getResources().getText(R.string.height).toString();
@@ -18,12 +20,8 @@ public class Triangle implements Area, Operation{
         return title;
     }
 
-    public String getBase_input_lbl() {
-        return base_input_lbl;
-    }
-
-    public String getArea_lbl() {
-        return area_lbl;
+    public String getInput_lbl() {
+        return input_lbl;
     }
 
     public void setBase(double base) {
@@ -35,7 +33,7 @@ public class Triangle implements Area, Operation{
     }
 
     @Override
-    public void Area() {
+    public void calculateArea() {
         area = 0.5 * base * height;
         Data.saveData(this);
     }
@@ -53,7 +51,8 @@ public class Triangle implements Area, Operation{
 
     @Override
     public String getResult() {
-        String result = Double.toString(area);
+        DecimalFormat df = new DecimalFormat("0.00");
+        String result = df.format(area);
         return result;
     }
 }
