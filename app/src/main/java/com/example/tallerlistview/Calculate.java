@@ -13,9 +13,10 @@ import android.widget.TextView;
 
 public class Calculate extends AppCompatActivity implements View.OnClickListener{
 
-    private static int strTitle, strVar1, op;
+    private static int strVar2, op;
     private double v1, v2;
-    private String side, base, height, slant_height, radius, sqr_area, rect_area, tri_area, cir_area, cube_area, cyl_area, cone_area, sphere_area;
+    private Square square;
+    private String base, height, slant_height, radius, rect_area, tri_area, cir_area, cube_area, cyl_area, cone_area, sphere_area;
 
     private TextView title, var1, var2, result;
     private EditText txtVar1, txtVar2;
@@ -37,7 +38,13 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         grpvar2 = findViewById(R.id.grpVar2);
         btnCalc = findViewById(R.id.btnCalc);
 
-        sqr_area = getResources().getText(R.string.square_area).toString();
+        switch (op){
+            case 0:
+                square = new Square(this);
+                title.setText(square.getTitle());
+                var1.setText(square.getInput_lbl());
+                break;
+        }
         rect_area = getResources().getText(R.string.rect_area).toString();
         tri_area = getResources().getText(R.string.tri_area).toString();
         cir_area = getResources().getText(R.string.circle_area).toString();
@@ -46,32 +53,25 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         cone_area = getResources().getText(R.string.cone_area).toString();
         sphere_area = getResources().getText(R.string.sphere_area).toString();
 
-        side = getResources().getText(R.string.side).toString();
         base = getResources().getText(R.string.base).toString();
         height = getResources().getText(R.string.height).toString();
         slant_height = getResources().getText(R.string.slant_height).toString();
         radius = getResources().getText(R.string.radius).toString();
 
+        if (op == 6){
+            var2.setText(strVar2);
+        }
         if (op == 0 || op == 3 || op == 4 || op == 7) {
-            title.setText(strTitle);
-            var1.setText(strVar1);
             grpvar2.setVisibility(View.GONE);
             btnCalc.setOnClickListener(this);
         }
         else {
-            title.setText(strTitle);
-            var1.setText(strVar1);
             btnCalc.setOnClickListener(this);
         }
-
     }
 
-    public static void setStrTitle(int s){
-        Calculate.strTitle = s;
-    }
-
-    public static void setStrVar1(int strVar1) {
-        Calculate.strVar1 = strVar1;
+    public static void setStrVar2(int strVar2) {
+        Calculate.strVar2 = strVar2;
     }
 
     public static void setOp(int op) {
@@ -84,12 +84,11 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
             case 0:
                 Log.i("Funcion:", "Area Cuadrado");
                 if (!isEmpty(txtVar1)){
-                    o = new Operations();
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)){
-                        o.setOp(sqr_area);
-                        o.setData(side+": "+v1);
-                        result.setText(sqr_area+": "+o.getSquareArea(v1));
+                        square.setSide(v1);
+                        square.Area();
+                        result.setText(square.getArea_lbl()+": "+square.getResult());
                     }
                 }
                 break;
@@ -134,10 +133,9 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
             case 4:
                 Log.i("Funcion:", "Area Esfera");
                 if (!isEmpty(txtVar1)){
-                    o = new Operations();
+                    //o = new Operations();
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)) {
-                        o.setOp(sphere_area);
                         o.setData(radius + ": " + v1);
                         result.setText(sphere_area + ": " + o.getSphereArea(v1));
                     }
@@ -164,7 +162,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     v2 = Double.parseDouble(txtVar2.getText().toString());
                     if (!isZero(v1, v2)){
                         o.setOp(cone_area);
-                        o.setData(radius+ ": "+v1+" "+slant_height+": "+v2);
+                        o.setData(radius+ ": "+v1+"\n"+slant_height+": "+v2);
                         result.setText(cone_area+": "+o.getConeArea(v1, v2));
                     }
                 }
@@ -176,7 +174,6 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                     v1 = Double.parseDouble(txtVar1.getText().toString());
                     if (!isZero(v1)){
                         o.setOp(cube_area);
-                        o.setData(side+": "+v1);
                         result.setText(cube_area+": "+o.getCubeArea(v1));
                     }
                 }

@@ -31,11 +31,6 @@ public class Operations {
         this.data = data;
     }
 
-    public double getSquareArea(double side){
-        setArea(Double.parseDouble(d.format(side*side)));
-        Data.saveData(this);
-        return getArea();
-    }
 
     public double getRectangleArea(double base, double height){
         setArea(Double.parseDouble(d.format(base*height)));

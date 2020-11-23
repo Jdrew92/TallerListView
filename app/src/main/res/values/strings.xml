@@ -60,4 +60,6 @@
     <string name="cone_area">CONE AREA</string>
     <string name="sphere_area">SPHERE AREA</string>
     <string name="slant_height">SLANT HEIGHT</string>
+    <string name="lbl_slant_input">SLANT HEIGHT VALUE</string>
+    <string name="done">DONE</string>
 </resources>

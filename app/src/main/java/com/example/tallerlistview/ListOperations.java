@@ -16,7 +16,7 @@ public class ListOperations extends AppCompatActivity {
 
     private TableLayout table;
     private ArrayList<Operations> operations;
-
+    //private ArrayList<Operation> operations;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,16 +25,16 @@ public class ListOperations extends AppCompatActivity {
         table = findViewById(R.id.tblOpsDone);
         operations = Data.getOperationsList();
 
-        Log.i("Operaciones Realizadas",""+operations.size());
+        //Log.i("Operaciones Realizadas",""+operations.size());
 
         for (int i = 0; i < operations.size(); i++) {
 
-                Log.i("-----------", "-------------");
+               /* Log.i("-----------", "-------------");
                 Log.i("No.", ""+i);
                 Log.i("Op", ""+operations.get(i).getOp());
                 Log.i("Datos", ""+operations.get(i).getData());
                 Log.i("area", ""+operations.get(i).getArea());
-                Log.i("-----------", "-------------");
+                Log.i("-----------", "-------------");*/
 
             TableRow row = new TableRow(this);
 

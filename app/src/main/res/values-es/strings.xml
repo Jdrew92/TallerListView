@@ -37,4 +37,6 @@
     <string name="cone_area">ÁREA DEL CONO</string>
     <string name="sphere_area">ÁREA DE LA ESFERA</string>
     <string name="slant_height">GENERATRIZ</string>
+    <string name="lbl_slant_input">VALOR DEL GENERATRIZ</string>
+    <string name="done">REALIZADAS</string>
 </resources>
