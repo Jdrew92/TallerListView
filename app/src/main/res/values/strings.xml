@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">TallerListView</string>
     <string name="options_title">OPTIONS</string>
-    <string name="area">AREAS</string>
-    <string name="volume">VOLUMES</string>
+    <string name="areas">AREAS</string>
+    <string name="volumes">VOLUMES</string>
     <string name="operations">OPERATIONS DONE</string>
 
     <string-array name="opts_array">
-        <item>@string/area</item>
-        <item>@string/volume</item>
+        <item>@string/areas</item>
+        <item>@string/volumes</item>
         <item>@string/operations</item>
     </string-array>
 
@@ -60,4 +60,7 @@
     <string name="cone_volume">CONE VOLUME</string>
     <string name="sphere_volume">SPHERE VOLUME</string>
     <string name="done">DONE</string>
+    <string name="area">AREA:</string>
+    <string name="volume">VOLUME:</string>
+    <string name="ok" translatable="false">OK</string>
 </resources>

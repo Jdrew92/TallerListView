@@ -11,7 +11,7 @@
         android:id="@+id/lblAreaTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/area"
+        android:text="@string/areas"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#4A148C"

@@ -6,12 +6,13 @@ import java.text.DecimalFormat;
 
 public class Rectangle implements Area, Operation{
     private double base, height, area;
-    private String title, input_lbl, area_lbl, base_lbl, height_lbl;
+    private String title, input_lbl, op_lbl, area_lbl, base_lbl, height_lbl;
 
     public Rectangle(Context context){
         title = context.getResources().getText(R.string.rectangle).toString();
         input_lbl = context.getResources().getText(R.string.lbl_base_input).toString();
-        area_lbl = context.getResources().getText(R.string.rect_area).toString();
+        op_lbl = context.getResources().getText(R.string.rect_area).toString();
+        area_lbl = context.getResources().getText(R.string.area).toString();
         base_lbl = context.getResources().getText(R.string.base).toString();
         height_lbl = context.getResources().getText(R.string.height).toString();
     }
@@ -22,6 +23,10 @@ public class Rectangle implements Area, Operation{
 
     public String getInput_lbl() {
         return input_lbl;
+    }
+
+    public String getArea_lbl() {
+        return area_lbl;
     }
 
     public void setBase(double base) {
@@ -40,7 +45,7 @@ public class Rectangle implements Area, Operation{
 
     @Override
     public String getOperation() {
-        return area_lbl;
+        return op_lbl;
     }
 
     @Override

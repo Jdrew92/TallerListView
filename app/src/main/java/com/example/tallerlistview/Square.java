@@ -7,12 +7,13 @@ import java.text.DecimalFormat;
 public class Square implements Area, Operation{
 
     private double side, area;
-    private String title, input_lbl, area_lbl, side_lbl;
+    private String title, input_lbl, op_lbl, area_lbl, side_lbl;
 
     public Square(Context context){
         title = context.getResources().getText(R.string.square).toString();
         input_lbl = context.getResources().getText(R.string.lbl_side_input).toString();
-        area_lbl = context.getResources().getText(R.string.square_area).toString();
+        op_lbl = context.getResources().getText(R.string.square_area).toString();
+        area_lbl = context.getResources().getText(R.string.area).toString();
         side_lbl = context.getResources().getText(R.string.side).toString();
     }
 
@@ -28,6 +29,10 @@ public class Square implements Area, Operation{
         return input_lbl;
     }
 
+    public String getArea_lbl() {
+        return area_lbl;
+    }
+
     @Override
     public void calculateArea() {
         area = side * side;
@@ -36,7 +41,7 @@ public class Square implements Area, Operation{
 
     @Override
     public String getOperation() {
-        return area_lbl;
+        return op_lbl;
     }
 
     @Override

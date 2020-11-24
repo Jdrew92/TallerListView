@@ -3,6 +3,7 @@ package com.example.tallerlistview;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +26,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
     private Cone co;
     private Cube cu;
 
-    private TextView title, var1, var2, result;
+    private TextView title, var1, var2;
     private EditText txtVar1, txtVar2;
     private Button btnCalc;
     private static LinearLayout grpvar2;
@@ -40,7 +41,6 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         var2 = findViewById(R.id.lblVar2);
         txtVar1 = findViewById(R.id.txtVar1);
         txtVar2 = findViewById(R.id.txtVar2);
-        result = findViewById(R.id.lblResult);
         grpvar2 = findViewById(R.id.grpVar2);
         btnCalc = findViewById(R.id.btnCalc);
 
@@ -115,7 +115,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         s = new Square(this);
                         s.setSide(v1);
                         s.calculateArea();
-                        result.setText(s.getOperation()+": "+s.getResult());
+                        showMessage(s.getArea_lbl(), s.getResult());
                     }
                 }
                 break;
@@ -129,7 +129,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         r.setBase(v1);
                         r.setHeight(v2);
                         r.calculateArea();
-                        result.setText(r.getOperation()+": "+r.getResult());
+                        showMessage(r.getArea_lbl(), r.getResult());
                     }
                 }
                 break;
@@ -143,7 +143,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         t.setBase(v1);
                         t.setHeight(v2);
                         t.calculateArea();
-                        result.setText(t.getOperation()+": "+t.getResult());
+                        showMessage(t.getArea_lbl(), t.getResult());
                     }
                 }
                 break;
@@ -155,7 +155,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         c = new Circle(this);
                         c.setRadius(v1);
                         c.calculateArea();
-                        result.setText(c.getOperation()+": " + c.getResult());
+                        showMessage(c.getArea_lbl(), c.getResult());
                     }
                 }
                 break;
@@ -167,7 +167,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         sp = new Sphere(this);
                         sp.setRadius(v1);
                         sp.calculateVolume();
-                        result.setText(sp.getOperation()+": "+sp.getResult());
+                        showMessage(sp.getVolume_lbl(), sp.getResult());
                     }
                 }
                 break;
@@ -181,7 +181,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         cy.setRadius(v1);
                         cy.setHeight(v2);
                         cy.calculateVolume();
-                        result.setText(cy.getOperation()+": "+cy.getResult());
+                        showMessage(cy.getVolume_lbl(), cy.getResult());
                     }
                 }
                 break;
@@ -195,7 +195,7 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         co.setRadius(v1);
                         co.setHeight(v2);
                         co.calculateVolume();
-                        result.setText(co.getOperation()+": "+co.getResult());
+                        showMessage(co.getVolume_lbl(), co.getResult());
                     }
                 }
                 break;
@@ -207,30 +207,24 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
                         cu = new Cube(this);
                         cu.setSide(v1);
                         cu.calculateVolume();
-                        result.setText(cu.getOperation()+": "+cu.getResult());
+                        showMessage(cu.getVolume_lbl(), cu.getResult());
                     }
                 }
                 break;
         }
     }
 
-    public void clear(View v){
+    public void clear(View v) {
+        clear();
+    }
+    public void clear(){
 
         txtVar1.setText("");
         txtVar2.setText("");
-        result.setText("");
         txtVar1.requestFocus();
 
-        /*for (int i = 0; i < Data.getOperationsList().size(); i++) {
-            Log.i("-----------", "-------------");
-            Log.i("No.", ""+i);
-            Log.i("Op", ""+Data.getOperationsList().get(i).getOp());
-            Log.i("Datos", ""+Data.getOperationsList().get(i).getData());
-            Log.i("area", ""+Data.getOperationsList().get(i).getArea());
-
-        }
-        Log.i("-----------", "-------------");*/
     }
+
 
     public boolean isEmpty(EditText e){
         if (e.getText().toString().isEmpty()){
@@ -270,5 +264,19 @@ public class Calculate extends AppCompatActivity implements View.OnClickListener
         }
         return false;
     }
-    
+
+    public void showMessage(String operation, String result){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.result);
+        builder.setMessage(operation+" "+result);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                clear();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }

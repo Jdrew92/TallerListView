@@ -99,12 +99,4 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/lblResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
-        android:textAlignment="center"
-        android:textColor="#6E0E88"
-        android:textSize="36sp" />
 </LinearLayout>

@@ -11,7 +11,7 @@
         android:id="@+id/lblVolTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/volume"
+        android:text="@string/volumes"
         android:textAlignment="center"
         android:textColor="#4A148C"
         android:textSize="36sp"

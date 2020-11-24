@@ -6,12 +6,13 @@ import java.text.DecimalFormat;
 
 public class Cube implements Volume, Operation{
     private double side, volume;
-    private String title, input_lbl, volume_lbl, side_lbl;
+    private String title, input_lbl, op_lbl, volume_lbl, side_lbl;
 
     public Cube(Context context){
         title = context.getResources().getText(R.string.cube).toString();
         input_lbl = context.getResources().getText(R.string.lbl_side_input).toString();
-        volume_lbl = context.getResources().getText(R.string.cube_volume).toString();
+        op_lbl = context.getResources().getText(R.string.cube_volume).toString();
+        volume_lbl = context.getResources().getText(R.string.volume).toString();
         side_lbl = context.getResources().getText(R.string.side).toString();
     }
 
@@ -27,9 +28,13 @@ public class Cube implements Volume, Operation{
         return input_lbl;
     }
 
+    public String getVolume_lbl() {
+        return volume_lbl;
+    }
+
     @Override
     public String getOperation() {
-        return volume_lbl;
+        return op_lbl;
     }
 
     @Override

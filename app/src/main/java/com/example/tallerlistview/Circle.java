@@ -7,12 +7,13 @@ import java.text.DecimalFormat;
 public class Circle implements Area, Operation{
 
     private double radius, area;
-    private String title,input_lbl, area_lbl, radius_lbl;
+    private String title,input_lbl, op_lbl, area_lbl, radius_lbl;
 
     public Circle(Context context){
         title = context.getResources().getText(R.string.circle).toString();
         input_lbl = context.getResources().getText(R.string.lbl_radius_input).toString();
-        area_lbl = context.getResources().getText(R.string.circle_area).toString();
+        op_lbl = context.getResources().getText(R.string.circle_area).toString();
+        area_lbl = context.getResources().getText(R.string.area).toString();
         radius_lbl = context.getResources().getText(R.string.radius).toString();
     }
 
@@ -28,6 +29,10 @@ public class Circle implements Area, Operation{
         return input_lbl;
     }
 
+    public String getArea_lbl() {
+        return area_lbl;
+    }
+
     @Override
     public void calculateArea() {
         area = Math.PI*Math.pow(radius, 2);
@@ -36,7 +41,7 @@ public class Circle implements Area, Operation{
 
     @Override
     public String getOperation() {
-        return area_lbl;
+        return op_lbl;
     }
 
     @Override

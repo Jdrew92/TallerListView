@@ -7,12 +7,13 @@ import java.text.DecimalFormat;
 public class Sphere implements Volume, Operation{
 
     private double radius, volume;
-    private String title,input_lbl, volume_lbl, radius_lbl;
+    private String title,input_lbl, op_lbl, volume_lbl, radius_lbl;
 
     public Sphere(Context context){
         title = context.getResources().getText(R.string.sphere).toString();
         input_lbl = context.getResources().getText(R.string.lbl_radius_input).toString();
-        volume_lbl = context.getResources().getText(R.string.sphere_volume).toString();
+        op_lbl = context.getResources().getText(R.string.sphere_volume).toString();
+        volume_lbl = context.getResources().getText(R.string.volume).toString();
         radius_lbl = context.getResources().getText(R.string.radius).toString();
     }
 
@@ -28,9 +29,13 @@ public class Sphere implements Volume, Operation{
         return input_lbl;
     }
 
+    public String getVolume_lbl() {
+        return volume_lbl;
+    }
+
     @Override
     public String getOperation() {
-        return volume_lbl;
+        return op_lbl;
     }
 
     @Override
